@@ -10,7 +10,7 @@ function mapStateToProps(state) {
     return {
         // left is the name of the prop react is expecting
         // right is the redux state to pass as the prop
-        count: state.count
+        count: state
     }
 }
 
@@ -25,3 +25,8 @@ function mapDispatchToProps(dispatch) {
         handleReset: () => {dispatch(actionReset())}
     };
 }
+
+const reduxConnector = connect(mapStateToProps, mapDispatchToProps);
+export default reduxConnector(Counter);
+// popular with some tutorials:
+// export default connect(mapStateToProps, mapDispatchToProps)(Counter);
