@@ -4,11 +4,13 @@ export default function Counter({
     count,
     handleIncrement,
     handleDecrement,
-    handleReset
+    handleReset,
+    color
 }) {
+    const style = {color}
     return(
         <div>
-            <h1>{count}</h1>
+            <h1 style={style}>{count}</h1>
             <button onClick={handleIncrement}>+</button>
             <button onClick={handleDecrement}>-</button>
             <button onClick={handleReset}>Reset</button>

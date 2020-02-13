@@ -6,20 +6,32 @@ import { INCREMENT, DECREMENT, RESET } from "./actions";
 
 // state is your 'bank balance'
 // actions is your 'transaction slip'
-export function count(state=0, action) {
-    let newState = state;
+
+const defaultState = {
+    counter: 0,
+    color: 'orange'
+}
+export function count(state=defaultState, action) {
+    let newState = {...state};
     switch(action.type) {
         case INCREMENT:
-            ++newState;
+            ++newState.counter;
             break;
         case DECREMENT:
-            --newState;
+            --newState.counter;
             break;
         case RESET:
-            newState = 0;
+            newState.counter = 0;
             break;
         default:
             break;
+    }
+    if (newState.counter % 10 === 0) {
+        newState.color = 'orange';
+    } else if (newState.counter % 2 === 0) {
+        newState.color = 'red';
+    } else {
+        newState.color = 'green';
     }
     return newState;
 }

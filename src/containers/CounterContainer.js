@@ -10,7 +10,8 @@ function mapStateToProps(state) {
     return {
         // left is the name of the prop react is expecting
         // right is the redux state to pass as the prop
-        count: state
+        count: state.counter,
+        color: state.color
     }
 }
 
